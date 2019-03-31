@@ -1,0 +1,15 @@
+[Unit]
+Description=Disable IPv6 Persistence
+DefaultDependencies=no
+After=system-sysctl.service
+Before=sysinit.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/disable_ipv6/disable_ipv6
+ExecReload=/etc/disable_ipv6/disable_ipv6
+ExecStop=/etc/disable_ipv6/enable_ipv6
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
